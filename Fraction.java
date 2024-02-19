@@ -79,8 +79,21 @@ public class Fraction {
     }//end of method
     
     public void multiplyBy(Fraction another){
-        return;
-    }
+        // Multiply the numerators and denominators separately
+        int newNumerator = this.numerator * another.numerator;
+        int newDenominator = this.denominator * another.denominator;
+
+        // Create a new Fraction object with the multiplied values
+        Fraction result = new Fraction(newNumerator, newDenominator);
+
+        // Simplify the result using the existing simplify method
+        result = result.simplify();
+
+        // Update the current object with the simplified result
+        this.numerator = result.getNumerator();
+        this.denominator = result.getDenominator();
+    }//end of method
+    
     public void divideBy(Fraction another){
         return;
     }
