@@ -58,8 +58,26 @@ public class Fraction {
         return sum;
     }
     public void subtract(Fraction another){
-        return;
-    }
+        if (this.denominator==other.denominator){//if the denominators are the same, it directly subtracts the numerators and returns the denominator
+             int newNumerator = this.numerator - other.numerator;
+            return new Fraction(newNumerator, this.denominator);//returns new resulting fraction
+        }else {
+             /* different denominators
+     *new numerator:
+     *      - Multiply the numerator of this fraction by the denominator of the other fraction.
+     *        Step 1: Cross-multiply the numerator of the first fraction and the denominator of the 2nd fraction (A*D),
+     *        do the same for the numerator of the second fraction and the denominator of the first fraction(C*B)
+     *        Step 2: Subtract the products
+     *denominator:
+     *      - Multiply the denominators of both fractions to get a common denominator for the result.
+     *
+     */
+             int newNumerator = this.numerator * other.denominator - other.numerator * this.denominator;
+             int newDenominator = this.denominator * other.denominator;
+            return new Fraction(newNumerator, newDenominator);////returns new resulting fraction
+        }//end of if-else 
+    }//end of method
+    
     public void multiplyBy(Fraction another){
         return;
     }
