@@ -110,5 +110,24 @@ public class Fraction {
         result.denominator = LCD; //the denominator will be the LCD
         return result;
     }
+     /**this method will help convert fractions into its lowest term with the help of
+     *computed LCD from the previous method
+     */
+    private Fraction simplify(){
+        Fraction result = new Fraction(); //create an object of fraction
+        int gcd = 0; //initialize the value of gcd to 0
+        /*now, they are what you call as improper or proper fractions.
+        * proper fractions have their numerator greater than denominator
+        * improper fractions have their numerator less than the denominator
+        * distinguishing what kind of fraction it was is significant in computing GCD because the gcd may differ */
+        if (numerator > denominator){   // for improper fractions
+            gcd = computeGCD(numerator, denominator);
+        }else if (numerator < denominator){     // for proper fractions
+            gcd = computeGCD(denominator, numerator);
+        }
+        result.numerator = numerator/gcd; //divide the gcd to the numerator to simplify
+        result.denominator = denominator/gcd; //divide the gcd to denominator to simplify
+        return result;
+    }
 }
 
