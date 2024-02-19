@@ -62,16 +62,13 @@ public class Fraction {
              int newNumerator = this.numerator - other.numerator;
             return new Fraction(newNumerator, this.denominator);//returns new resulting fraction
         }else {
-             /* different denominators
-     *new numerator:
-     *      - Multiply the numerator of this fraction by the denominator of the other fraction.
-     *        Step 1: Cross-multiply the numerator of the first fraction and the denominator of the 2nd fraction (A*D),
-     *        do the same for the numerator of the second fraction and the denominator of the first fraction(C*B)
-     *        Step 2: Subtract the products
-     *denominator:
-     *      - Multiply the denominators of both fractions to get a common denominator for the result.
-     *
-     */
+            /* different denominators
+             *Step 1: Find the LCD
+             *Step 2: Multiply both fractions with the number that results to the LCD
+             *Step 3: Subtract the numerators since the denominators are now the same
+             *Step 4: Divide the numerator and the denominator with their GCF to simply it
+             *Step 5: Output the result
+             */
              int newNumerator = this.numerator * other.denominator - other.numerator * this.denominator;
              int newDenominator = this.denominator * other.denominator;
             return new Fraction(newNumerator, newDenominator);////returns new resulting fraction
