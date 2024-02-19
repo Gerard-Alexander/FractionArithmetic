@@ -64,7 +64,7 @@ public class Fraction {
         // so that when the addition assignment operator will be helpful
         int commonFactor = denominator1;
         //loop until the remainder is not = 0.
-        // when 0, this means that the final value is now the common factor or the LCM
+        // when 0, this means that the final value is now the common factor or the LCD
         while ((denominator1%denominator2)!= 0)
             denominator1 += commonFactor; //addition assignment operator
         return denominator1;
