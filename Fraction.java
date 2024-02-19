@@ -31,7 +31,31 @@ public class Fraction {
     public int getDenominator(){
         return denominator;
     }
-    public void add(Fraction another){
+    public Fraction add(Fraction another){
+        Fraction sum = new Fraction(); //create an object of fraction that will hold the value of added fractions
+        //fractions with 0 as denominator does not exist and is therefore invalid
+        if (denominator ==0 || another.denominator==0){
+            throw new IllegalArgumentException("Denominator cannot be 0");
+        }
+        //this will be executed if the fractions are similar
+        if(denominator == another.denominator){
+            sum.numerator = numerator+ another.numerator;
+            sum.denominator = denominator;
+        }else {
+            //if the fractions are dissimilar, this codes will be executed
+            //compute for LCD of two fractions to start converting
+            int lcd = computeLCD(denominator, another.denominator);
+            //now that we have the LCD, the next step is to convert each fraction to make them similar
+            //but since we are making a new fraction here, we must create an object of new fraction
+            Fraction convertedFraction = new Fraction(); //object of fraction for the first fraction
+            Fraction convertedAnother = new Fraction(); //object of fraction for the second fraction
+            convertedFraction = makeSimilar(lcd);   //call the method to make them similar and pass the value of their lcd
+            convertedAnother = another.makeSimilar(lcd);
+            // integrate the values to the object sum
+            sum.numerator = convertedFraction.numerator +convertedAnother.numerator;
+            sum.denominator = lcd;
+        }
+        return sum;
     }
     public void subtract(Fraction another){
         return;
