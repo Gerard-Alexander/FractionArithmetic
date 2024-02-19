@@ -65,6 +65,8 @@ class FractionArithmetic {
             System.out.println("Enter the second fraction:");
             Fraction fraction2 = getFractionFromUser();
 
+            fractionOperation(choice, fraction1, fraction2);
+
 
             }
     }//end of run
@@ -108,5 +110,29 @@ class FractionArithmetic {
             }
         }
         return new Fraction(numerator, denominator);
-    }
+    }//end of getFractionFromUser
+
+    private void fractionOperation(int choice, Fraction fraction1, Fraction fraction2){
+        switch (choice) {
+            case 1:
+                                System.out.println("Addition"); //actual code later
+                break;
+            case 2: 
+                                System.out.println("Subtraction"); //actual code later
+                break;
+            case 3:             
+                                System.out.println("Multiplication"); //actual code later
+                break;
+            case 4:        
+                                System.out.println("Division"); //actual code later
+                break;
+            case 5: 
+                                System.out.println("Reducement"); //actual code later
+                break;
+            default:
+                                System.out.println("Invalid Choice!"); //actual code later
+
+        }//end of switch-case
+    }//end of fractionOperation
+    
 }//end of class
