@@ -39,7 +39,18 @@ public class Fraction {
     public int getDenominator(){
         return denominator;
     }
-//     method to create GCD
+    public void add(Fraction another){
+    }
+    public void subtract(Fraction another){
+        return;
+    }
+    public void multiplyBy(Fraction another){
+        return;
+    }
+    public void divideBy(Fraction another){
+        return;
+    }
+    //     method to create GCD
 //     GCD is used to convert fractions into its simplest form
 //     example: 2/4 = 1/2
 //     we need the denominator of the 1st fraction and 2nd fraction, hence the parameters
@@ -68,31 +79,6 @@ public class Fraction {
         while ((denominator1%denominator2)!= 0)
             denominator1 += commonFactor; //addition assignment operator, it works by adding the commonFactor to denominator1 and making it the value of denominator 1
         return denominator1;
-    }
-    public void add(Fraction another){
-//        denominator;
-//        Fraction result = new Fraction();
-//        result.setNumerator(numerator);
-//        result.setDenominator(denominator);
-//        // this code will be used then the fraction is a similar fraction
-//       if (result.denominator == another.denominator){
-//           result.numerator = result.numerator + another.numerator;
-//       }
-//       //this code will be used if the fraction is dissimilar
-//       //this will utilize finding the lcm to make them similar
-//       int lcm = (result.denominator<)
-//
-//
-//        return;
-    }
-    public void subtract(Fraction another){
-        return;
-    }
-    public void multiplyBy(Fraction another){
-        return;
-    }
-    public void divideBy(Fraction another){
-        return;
     }
 }
 
