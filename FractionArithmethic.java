@@ -118,7 +118,7 @@ class FractionArithmetic {
                                 System.out.println("Addition"); //actual code later
                 break;
             case 2: 
-                                System.out.println("Subtraction"); //actual code later
+                System.out.println("Result: " + fraction1.subtract(fraction2));//case for the subtraction operation
                 break;
             case 3:             
                                 System.out.println("Multiplication"); //actual code later
