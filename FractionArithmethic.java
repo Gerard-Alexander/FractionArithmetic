@@ -1,4 +1,4 @@
-package src;
+package GroupProject122;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
