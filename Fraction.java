@@ -74,5 +74,17 @@ public class Fraction {
         the commonFactor to denominator1 and making it the value of denominator 1*/
         return denominator1;
     }
+    /**This method will help convert fractions so that two fractions will be similar
+     * with the help of computed LCD from the previous method
+     */
+    private Fraction makeSimilar (int LCD){ //in converting fractions into similar, we need the LCD
+        Fraction result = new Fraction(); //create a new object of fraction
+        /*in converting similar fractions, we need to divide the LCD to the denominator
+        and the resulting factor will be multiplied to the numerator so that it will still be equal*/
+        int multiplier = LCD/ denominator; 
+        result.numerator = numerator*multiplier; //multiply the factor to the numerator
+        result.denominator = LCD; //the denominator will be the LCD
+        return result;
+    }
 }
 
