@@ -57,22 +57,25 @@ public class Fraction {
         }
         return sum;
     }
-    public void subtract(Fraction another){
-        if (this.denominator==other.denominator){//if the denominators are the same, it directly subtracts the numerators and returns the denominator
-             int newNumerator = this.numerator - other.numerator;
-            return new Fraction(newNumerator, this.denominator);//returns new resulting fraction
-        }else {
-            /* different denominators
-             *Step 1: Find the LCD
-             *Step 2: Multiply both fractions with the number that results to the LCD
-             *Step 3: Subtract the numerators since the denominators are now the same
-             *Step 4: Divide the numerator and the denominator with their GCF to simply it
-             *Step 5: Output the result
-             */
-             int newNumerator = this.numerator * other.denominator - other.numerator * this.denominator;
-             int newDenominator = this.denominator * other.denominator;
-            return new Fraction(newNumerator, newDenominator);////returns new resulting fraction
-        }//end of if-else 
+    
+    public Fraction subtract(Fraction another) {
+        if (this.denominator == another.denominator) {
+            // If the denominators are the same, subtract the numerators directly
+            int newNumerator = this.numerator - another.numerator;
+            return new Fraction(newNumerator, this.denominator).simplify();
+        } else {
+            // Different denominators
+            // Step 1: Find the LCD
+            int lcd = computeLCD(this.denominator, another.denominator);
+            // Step 2: Multiply both fractions with the number that results in the LCD
+            int newNumerator1 = this.numerator * (lcd / this.denominator);
+            int newNumerator2 = another.numerator * (lcd / another.denominator);
+            // Step 3: Subtract the numerators since the denominators are now the same
+            int newNumerator = newNumerator1 - newNumerator2;
+            int newDenominator = lcd;
+            // Step 4: Simplify the result
+            return new Fraction(newNumerator, newDenominator).simplify();
+        } 
     }//end of method
     
     public void multiplyBy(Fraction another){
@@ -144,5 +147,10 @@ public class Fraction {
         result.denominator = denominator/gcd; //divide the gcd to denominator to simplify
         return result;
     }
+
+     public String toString() {
+        return numerator + "/" + denominator;
+    }
+    
 }
 
