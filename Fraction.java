@@ -95,6 +95,16 @@ public class Fraction {
     }//end of method
     
     public void divideBy(Fraction another){
+        //in dividing fraction, we must get the reciprocal of the 2nd fraction then proceed to multiplication
+        int reciprocalDenominator = another.numerator;
+        int reciprocalNumerator = another.denominator;
+
+        Fraction reciprocal = new Fraction(reciprocalNumerator, reciprocalDenominator);
+
+        int newNumerator = reciprocal.numerator * this.numerator;
+        int newDenominator= reciprocal.denominator * this.denominator;
+
+        return new Fraction ( newNumerator, newDenominator).simplify();
         return;
     }
     /**  method to create GCD
