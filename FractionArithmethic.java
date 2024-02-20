@@ -115,7 +115,7 @@ class FractionArithmetic {
     private void fractionOperation(int choice, Fraction fraction1, Fraction fraction2){
         switch (choice) {
             case 1:
-                                System.out.println("Addition"); //actual code later
+                              System.out.println("Result: " + fraction1.add(fraction2));
                 break;
             case 2: 
                 System.out.println("Result: " + fraction1.subtract(fraction2));//case for the subtraction operation
@@ -125,7 +125,7 @@ class FractionArithmetic {
                  System.out.println("Result: " + fraction1);               
                 break;
             case 4:        
-                                System.out.println("Division"); //actual code later
+                                System.out.println("Result: " + fraction1.divideBy(fraction2)); 
                 break;
             case 5: 
                                 System.out.println("Reducement"); //actual code later
