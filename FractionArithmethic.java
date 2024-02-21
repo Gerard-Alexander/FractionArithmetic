@@ -17,8 +17,15 @@ class FractionArithmetic {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("Welcome to Fraction Arithmetic"); //introduction message prompt
         while (true) {
+            System.out.println("Press Enter to continue: ");
+            try{
+                System.in.read();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
             System.out.println("--------------------------");
             System.out.println("What do you want to do?");
             System.out.println("1. Add fractions");
@@ -32,16 +39,17 @@ class FractionArithmetic {
             System.out.print("Enter Operation Here: ");
 
             /*
-            * code below initiates the operation choices.
-            * it also loops the prompt if the user inputs something that is not among
-            * the options.
-            *
-            *
-            * might not be needed if the operands are on another method
-            * */
+             * code below initiates the operation choices.
+             * it also loops the prompt if the user inputs something that is not among
+             * the options.
+             *
+             *
+             * might not be needed if the operands are on another method
+             * */
             int choice;
             try {
                 choice = scanner.nextInt();
+                System.out.println();
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input for choice. Please enter a number.");
                 scanner.next(); // Clear the invalid input
@@ -55,33 +63,33 @@ class FractionArithmetic {
             }
             else if (choice == 6) {
                 System.out.println("Exiting program. Goodbye!");
+                System.exit(0);
                 break;
             } else if (choice == 5){ // choice 5 will reduce a fraction so it only needs 1 input of fraction.
                 System.out.println("Enter the fraction you want to simplify: ");
                 Fraction fraction = getFractionFromUser();
-                System.out.println("Simplified Form: " +fraction.simplify()); //actual code later
-                break;
+                System.out.println("Simplified Form: " +fraction.simplify());
+                System.out.println();
+                run();
             }
             //input for fraction
             System.out.println("Enter the first fraction:");
             Fraction fraction1 = getFractionFromUser();
-
+            System.out.println();
             System.out.println("Enter the second fraction:");
             Fraction fraction2 = getFractionFromUser();
-
+            System.out.println();
             fractionOperation(choice, fraction1, fraction2);
+            System.out.println("---------------------------------");
+        }
 
-
-            }
     }//end of run
 
-
-
     /*below is a method used to get the value of the fractions via user input
-    * if the user inputs a non-numerical value or 0, it repeats the prompt until the user
-    * inputs something valid
-    *
-    * */
+     * if the user inputs a non-numerical value or 0, it repeats the prompt until the user
+     * inputs something valid
+     *
+     * */
     private Fraction getFractionFromUser() {
         Scanner scanner = new Scanner(System.in);
 
@@ -118,26 +126,28 @@ class FractionArithmetic {
 
     private void fractionOperation(int choice, Fraction fraction1, Fraction fraction2){
         switch (choice) {
-            case 1:
-                              System.out.println("Result: " + fraction1.add(fraction2));
-                break;
-            case 2: 
-                System.out.println("Result: " + fraction1.subtract(fraction2));//case for the subtraction operation
-                break;
-            case 3:             
-                 fraction1.multiplyBy(fraction2); // Invokes the multiplication method
-                 System.out.println("Result: " + fraction1);               
-                break;
-            case 4:        
-                                System.out.println("Result: " + fraction1.divideBy(fraction2)); 
-                break;
-            case 5: 
-                                System.out.println("Reducement"); //actual code later
-                break;
-            default:
-                                System.out.println("Invalid Choice!"); //actual code later
-
+            case 1 -> {
+                System.out.println("Sum: " + fraction1.add(fraction2)); //display the computed value
+                System.out.println("Lowest Term:  " + fraction1.add(fraction2).simplify()); //display the simplified fraction
+                System.out.println("Whole Number Equivalent:  " + fraction1.add(fraction2).convertWholeNumber());// display the whole number equivalent
+            }
+            case 2 -> {
+                System.out.println("Difference: " + fraction1.subtract(fraction2));//case for the subtraction operation
+                System.out.println("Lowest Term:  " + fraction1.subtract(fraction2).simplify()); //display the simplified fraction
+                System.out.println("Whole Number Equivalent:  " + fraction1.subtract(fraction2).convertWholeNumber());
+            }
+            case 3 -> {
+                System.out.println("Product: " + fraction1.multiplyBy(fraction2));
+                System.out.println("Lowest Term: " + fraction1.multiplyBy(fraction2).simplify());
+                System.out.println("Whole Number Equivalent: " + fraction1.multiplyBy(fraction2).convertWholeNumber());
+            }
+            case 4 -> {
+                System.out.println("Quotient: " + fraction1.divideBy(fraction2));
+                System.out.println("Lowest Term: " + fraction1.divideBy(fraction2).simplify());
+                System.out.println("Whole Number Equivalent: " + fraction1.divideBy(fraction2).convertWholeNumber());
+            }
+            default -> System.out.println("Invalid Choice!"); //actual code later
         }//end of switch-case
     }//end of fractionOperation
-    
+
 }//end of class
