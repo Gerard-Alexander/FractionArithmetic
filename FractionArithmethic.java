@@ -129,22 +129,26 @@ class FractionArithmetic {
             case 1 -> {
                 System.out.println("Sum: " + fraction1.add(fraction2)); //display the computed value
                 System.out.println("Lowest Term:  " + fraction1.add(fraction2).simplify()); //display the simplified fraction
-                System.out.println("Whole Number Equivalent:  " + fraction1.add(fraction2).convertWholeNumber());// display the whole number equivalent
+                System.out.printf("Whole Number Equivalent: %.2f", fraction1.add(fraction2).convertWholeNumber());// display the whole number equivalent with the first 2 decimal digits.
+                System.out.println();
             }
             case 2 -> {
                 System.out.println("Difference: " + fraction1.subtract(fraction2));//case for the subtraction operation
                 System.out.println("Lowest Term:  " + fraction1.subtract(fraction2).simplify()); //display the simplified fraction
-                System.out.println("Whole Number Equivalent:  " + fraction1.subtract(fraction2).convertWholeNumber());
+                System.out.printf("Whole Number Equivalent: %.2f", fraction1.subtract(fraction2).convertWholeNumber());
+                System.out.println();
             }
             case 3 -> {
                 System.out.println("Product: " + fraction1.multiplyBy(fraction2));
                 System.out.println("Lowest Term: " + fraction1.multiplyBy(fraction2).simplify());
-                System.out.println("Whole Number Equivalent: " + fraction1.multiplyBy(fraction2).convertWholeNumber());
+                System.out.printf("Whole Number Equivalent: %.2f", fraction1.multiplyBy(fraction2).convertWholeNumber());
+                System.out.println();
             }
             case 4 -> {
                 System.out.println("Quotient: " + fraction1.divideBy(fraction2));
                 System.out.println("Lowest Term: " + fraction1.divideBy(fraction2).simplify());
-                System.out.println("Whole Number Equivalent: " + fraction1.divideBy(fraction2).convertWholeNumber());
+                System.out.printf("Whole Number Equivalent: %.2f", fraction1.divideBy(fraction2).convertWholeNumber());
+                System.out.println();
             }
             default -> System.out.println("Invalid Choice!"); //actual code later
         }//end of switch-case
