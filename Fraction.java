@@ -54,6 +54,7 @@ public class Fraction {
             // integrate the values to the object sum
             sum.numerator = convertedFraction.numerator +convertedAnother.numerator;
             sum.denominator = lcd;
+            sum.simplify();
         }
         return sum;
     }
@@ -174,6 +175,11 @@ public class Fraction {
      public String toString() {
         return numerator + "/" + denominator;
     }
-    
+      //method used to convert fractions into its whole number equivalent
+    public double convertWholeNumber (){
+        return ((double) numerator / (double) denominator); // simply divide the numerator to denominator
+        // we have to type cast each variable into double because the data type
+        //of these two instance variables are initially declared as int
+    }
 }
 
