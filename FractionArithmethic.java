@@ -56,8 +56,12 @@ class FractionArithmetic {
             else if (choice == 6) {
                 System.out.println("Exiting program. Goodbye!");
                 break;
+            } else if (choice == 5){ // choice 5 will reduce a fraction so it only needs 1 input of fraction.
+                System.out.println("Enter the fraction you want to simplify: ");
+                Fraction fraction = getFractionFromUser();
+                System.out.println("Simplified Form: " +fraction.simplify()); //actual code later
+                break;
             }
-
             //input for fraction
             System.out.println("Enter the first fraction:");
             Fraction fraction1 = getFractionFromUser();
