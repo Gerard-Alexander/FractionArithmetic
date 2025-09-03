@@ -1,2 +1,1 @@
-hello lets code for our bright future. also, please add comments for documentaries. thanks
-GroupProject122
+A simple program in representing fractions and mixed fractions and in performing arithmetic operations among them.
